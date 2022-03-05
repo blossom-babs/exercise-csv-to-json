@@ -1,18 +1,28 @@
 import express, { Request, Response, NextFunction } from 'express';
 import csvtojson from 'csvtojson';
+import { promises as fspromises } from 'fs';
 
 const app = express();
 const port = 3000;
 
-console.log(csvtojson());
+const csvFilePath = './src/files/userData.csv';
+const jsonFilePath = './src/files/userData.json';
 
-const converter = (req: Request, res: Response, next: NextFunction) => {
-  res.status(200).send({ id: 'Blossom, res cannot send back res' });
+
+const fileConverter = async (req: Request, res: Response, next: NextFunction) => {
+  let convertedFile = await csvtojson().fromFile(csvFilePath);
+  convertedFile.filter((item) => {
+    if (item.phone === undefined) {
+      item.phone = 'missing data';
+    }
+  });
+  await fspromises.writeFile(jsonFilePath, JSON.stringify(convertedFile));
+  res.send(convertedFile);
   next();
 };
 
-app.get('/convert', converter, (req, res) => {
-  console.log('');
+app.get('/convert', fileConverter, (req, res) => {
+  fileConverter;
 });
 
 app.listen(port, () => console.log('server is listening on port', port));
