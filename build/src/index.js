@@ -46,40 +46,29 @@ var app = (0, express_1.default)();
 var port = 3000;
 var csvFilePath = './src/files/userData.csv';
 var jsonFilePath = './src/files/userData.json';
-// const csvConverter = async () => {
-//   let jsonArray = await csvtojson().fromFile(csvFilePath);
-//   jsonArray.filter((item) => {
-//     if (item.phone === undefined) {
-//       item.phone = 'missing data';
-//     }
-//   });
-//   console.log(jsonArray);
-//   await fspromises.writeFile(jsonFilePath, JSON.stringify(jsonArray));
-// };
-// csvConverter().then((data) => console.log(data));
-var converter = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var jsonArray;
+var fileConverter = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var convertedFile;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, csvtojson_1.default)().fromFile(csvFilePath)];
             case 1:
-                jsonArray = _a.sent();
-                jsonArray.filter(function (item) {
+                convertedFile = _a.sent();
+                convertedFile.filter(function (item) {
                     if (item.phone === undefined) {
                         item.phone = 'missing data';
                     }
                 });
-                return [4 /*yield*/, fs_1.promises.writeFile(jsonFilePath, JSON.stringify(jsonArray))];
+                return [4 /*yield*/, fs_1.promises.writeFile(jsonFilePath, JSON.stringify(convertedFile))];
             case 2:
                 _a.sent();
-                res.send(jsonArray);
+                res.send(convertedFile);
                 next();
                 return [2 /*return*/];
         }
     });
 }); };
-app.get('/convert', converter, function (req, res) {
-    converter;
+app.get('/convert', fileConverter, function (req, res) {
+    fileConverter;
 });
 app.listen(port, function () { return console.log('server is listening on port', port); });
 exports.default = app;

@@ -8,9 +8,12 @@ const port = 3000;
 const csvFilePath = './src/files/userData.csv';
 const jsonFilePath = './src/files/userData.json';
 
-
-const fileConverter = async (req: Request, res: Response, next: NextFunction) => {
-  let convertedFile = await csvtojson().fromFile(csvFilePath);
+const fileConverter = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const convertedFile = await csvtojson().fromFile(csvFilePath);
   convertedFile.filter((item) => {
     if (item.phone === undefined) {
       item.phone = 'missing data';
