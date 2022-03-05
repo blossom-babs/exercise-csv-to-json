@@ -8,7 +8,7 @@ const port = 3000;
 const csvFilePath = './src/files/userData.csv';
 const jsonFilePath = './src/files/userData.json';
 
-const fileConverter = async (
+export const fileConverter = async (
   req: Request,
   res: Response,
   next: NextFunction

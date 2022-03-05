@@ -39,6 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.fileConverter = void 0;
 var express_1 = __importDefault(require("express"));
 var csvtojson_1 = __importDefault(require("csvtojson"));
 var fs_1 = require("fs");
@@ -67,8 +68,9 @@ var fileConverter = function (req, res, next) { return __awaiter(void 0, void 0,
         }
     });
 }); };
-app.get('/convert', fileConverter, function (req, res) {
-    fileConverter;
+exports.fileConverter = fileConverter;
+app.get('/convert', exports.fileConverter, function (req, res) {
+    exports.fileConverter;
 });
 app.listen(port, function () { return console.log('server is listening on port', port); });
 exports.default = app;

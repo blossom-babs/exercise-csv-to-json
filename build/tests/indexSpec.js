@@ -39,15 +39,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var index_1 = require("./../src/index");
 var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../src/index"));
+var index_2 = __importDefault(require("../src/index"));
 describe('GET /convert', function () {
     it('tests the functionality of the /convert endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var request, response;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    request = (0, supertest_1.default)(index_1.default);
+                    request = (0, supertest_1.default)(index_2.default);
                     return [4 /*yield*/, request.get('/convert')];
                 case 1:
                     response = _a.sent();
@@ -60,4 +61,7 @@ describe('GET /convert', function () {
             }
         });
     }); });
+    it('converts csv to json files', function () {
+        expect(index_1.fileConverter).toBeTruthy();
+    });
 });

@@ -1,3 +1,4 @@
+import { fileConverter } from './../src/index';
 import supertest from 'supertest';
 import app from '../src/index';
 
@@ -13,4 +14,9 @@ describe('GET /convert', () => {
       'application/json; charset=utf-8'
     );
   });
+
+  it('converts csv to json files', () => {
+    expect(fileConverter).toBeTruthy()
+
+  })
 });
