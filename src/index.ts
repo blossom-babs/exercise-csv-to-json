@@ -1,18 +1,16 @@
-import addFunc from './controller/add';
-console.log(addFunc(6, 7));
+import express, { Request, Response, NextFunction } from 'express';
+const app = express();
+const port = 3000;
 
-// a text editor function
-export const textEditor = (word: string): string => {
-  const newWord = word.split(' ');
-  let i = 0;
-  while (i < newWord.length) {
-    if (newWord[i] === 'movie') {
-      newWord[i] = 'film';
-    }
-    i++;
-  }
-
-  return newWord.join(' ');
+const converter = (req: Request, res: Response, next: NextFunction) => {
+  res.send(req.url);
+  next()
 };
 
-textEditor('The movie that just came out is a phenomenal movie');
+app.get('/conver', converter, (req, res) => {
+  res.json({ id: 'this is the entry page' });
+});
+
+app.listen(port, () => console.log('server is live on port', port));
+
+export default app;

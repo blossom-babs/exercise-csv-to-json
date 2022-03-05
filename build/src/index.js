@@ -6,17 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var app = (0, express_1.default)();
 var port = 3000;
-var logger = function (req, res, next) {
-    if ((req.params.id = 'secure')) {
-        res.redirect('/api/admin');
-        next();
-    }
+var converter = function (req, res, next) {
+    res.send('this is the converter function');
 };
-app.get('/:id', logger, function (req, res) {
-    res.send('this is the entry page');
-});
-app.get('/api/admin', function (req, res) {
-    res.send('this is the secure route');
+app.get('/conver', converter, function (req, res) {
+    res.json({ id: 'this is the entry page' });
 });
 app.listen(port, function () { return console.log('server is live on port', port); });
 exports.default = app;
