@@ -40,20 +40,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../index"));
-describe('tests endpoints', function () {
-    it('expects the get endpoint to work', function () { return __awaiter(void 0, void 0, void 0, function () {
+var index_1 = __importDefault(require("../src/index"));
+describe('GET /convert', function () {
+    it('tests the functionality of the /convert endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var request, response;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     request = (0, supertest_1.default)(index_1.default);
-                    return [4 /*yield*/, request.get('/')];
+                    return [4 /*yield*/, request.get('/convert')];
                 case 1:
                     response = _a.sent();
-                    expect(response).not.toBeFalsy();
-                    expect(response.status).toBe(200);
-                    expect(response.body.message).toBe('Hello world');
+                    console.log(response);
+                    expect(response.statusCode).toBe(200);
+                    expect(response.body).toBeTruthy();
+                    expect(response.error).toBe(false);
+                    expect(response.redirect).toBe(false);
+                    expect(response.headers['content-type']).toEqual('application/json; charset=utf-8');
                     return [2 /*return*/];
             }
         });

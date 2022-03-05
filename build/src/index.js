@@ -7,10 +7,10 @@ var express_1 = __importDefault(require("express"));
 var app = (0, express_1.default)();
 var port = 3000;
 var converter = function (req, res, next) {
-    res.send('this is the converter function');
+    res.status(200).send({ id: 'Blossom, res cannot send back res' });
+    next();
 };
-app.get('/conver', converter, function (req, res) {
-    res.json({ id: 'this is the entry page' });
+app.get('/convert', converter, function (req, res) {
 });
-app.listen(port, function () { return console.log('server is live on port', port); });
+app.listen(port, function () { return console.log('server is listening on port', port); });
 exports.default = app;
