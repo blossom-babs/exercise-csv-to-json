@@ -1,22 +1,36 @@
-# Typescript, eslint and prettier configuration repositiory
+# Convert csv file to json file
 
-This is a boilerplate code for reusable typescript setup, prettier code formatter, eslint linter, and jasmine unit testing
+This project leverages [CSVTOJSON](https://www.npmjs.com/package/csvtojson) module to convert csv file to a json object
 
-### Helpful links
+### Additional requirements
+1. Create a new json file using [nodejs filesystem](https://nodejs.org/api/fs.html) to save converted file.
+2. Write code to update missing phone property with __missing data__.
 
-- [Typescript installation](https://www.typescriptlang.org/download).
-- [Prettier](https://prettier.io/)
-- [Eslint](https://eslint.org/)
-- [Jasmine](https://jasmine.github.io/)
-- [use Jasmine spec reporter with typescript](https://github.com/bcaudan/jasmine-spec-reporter/tree/673e22cd3b13732b421a25e862dbe887692ed345/examples/typescript)
+## Bootstrapped with
+1. [Typescript](https://www.typescriptlang.org/)
+2. [Jasmine framework for testing](https://jasmine.github.io/)
+3. [eslint linter](https://eslint.org/)
+4. [Prettier code formatter](https://prettier.io/)
 
-### Bonus resources
+## Getting started
+```
+$ git clone https://github.com/blossom-babs/exercise-csv-to-json.git
+$ cd exercise-csv-to-json
+$ npm install
+$ npm run build
+```
+If you want to contribute, before any of the steps above, you would need to __fork__ this project first.
+You're ready to hack (and | or contribute) ✌️
 
-1. [Typescript, eslint, prettier](https://moduscreate.com/blog/lint-style-typescript/)
-2. [How to use eslint with prettier](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/)
-3. [Enforcing Coding Conventions with Husky Pre-commit Hooks](https://khalilstemmler.com/blogs/tooling/enforcing-husky-precommit-hooks/)
-4. [How to use Prettier with ESLint and TypeScript in VSCode](https://khalilstemmler.com/blogs/tooling/prettier/)
+## 🤝 Contributing
+Contributions, issues and feature requests are welcome!
 
-*Note: husky version > 4 does not work.*
+## Authors
+🌸 __Blossom__
+- Github: [@blossom-babs](https://github.com/blossom-babs/)
+- LinkedIn: [Blossom Babalola](https://www.linkedin.com/in/blossom-babalola/)
+- Twitter: [@BlossomBabalola](https://twitter.com/BlossomBabalola)
 
-*["type:module" should not be used](https://stackoverflow.com/a/60998638/14247589)*
+### Show your support
+- Give a ⭐ if you like this project
+- [Buy me a coffee](https://www.buymeacoffee.com/blossombabs)

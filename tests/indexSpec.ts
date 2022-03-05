@@ -16,7 +16,6 @@ describe('GET /convert', () => {
   });
 
   it('converts csv to json files', () => {
-    expect(fileConverter).toBeTruthy()
-
-  })
+    expect(fileConverter).toBeTruthy();
+  });
 });
