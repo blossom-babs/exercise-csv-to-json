@@ -51,7 +51,6 @@ describe('GET /convert', function () {
                     return [4 /*yield*/, request.get('/convert')];
                 case 1:
                     response = _a.sent();
-                    console.log(response);
                     expect(response.statusCode).toBe(200);
                     expect(response.body).toBeTruthy();
                     expect(response.error).toBe(false);
