@@ -2,6 +2,16 @@
 
 This project leverages [CSVTOJSON](https://www.npmjs.com/package/csvtojson) module to convert csv file to a json object
 
+### ✨ Features:
+🔄 Accepts CSV file uploads via a single POST endpoint
+
+📥 Parses rows and headers into structured JSON objects
+
+ ###  🛠️ Use Cases:
+- Preparing CSV data for frontend apps
+- Importing legacy datasets into JSON-based APIs
+- Converting spreadsheet exports into usable structured data
+
 ### Additional requirements
 1. Create a new json file using [nodejs filesystem](https://nodejs.org/api/fs.html) to save converted file.
 2. Write code to update missing phone property with __missing data__.
